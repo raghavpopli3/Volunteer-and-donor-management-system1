@@ -1,0 +1,10 @@
+{
+  "name": "sevasetu",
+  "version": "1.0.0",
+  "description": "SevaSetu — NGO Volunteer & Donation Management Portal (Semester 3 Mini-Project)",
+  "author": "Raghav",
+  "scripts": {
+    "dev": "./serve.sh",
+    "start": "./serve.sh"
+  }
+}

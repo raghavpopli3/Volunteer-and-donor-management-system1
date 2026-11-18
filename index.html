@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SevaSetu — NGO Volunteer & Donation Management Portal (Semester 3 Project by Raghav). Centralized volunteer tracking, donation ledger with 80G receipts, and CSV exports.">
+  <title>SevaSetu | NGO Volunteer & Donation Management (Sem 3 Project)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+</head>
+<body>
+
+<div class="app-wrap">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">SevaSetu</span>
+        <span class="brand-tagline">NGO Management Portal</span>
+      </div>
+    </div>
+
+    <!-- Student Project Info Pill -->
+    <div class="project-pill-wrap">
+      <button class="project-pill-btn" id="openAboutProjectBtn" title="Click to view Semester 3 project details">
+        <span class="pill-dot"></span>
+        <span class="pill-text">Sem 3 Mini Project · Raghav</span>
+        <span class="pill-info-icon">ℹ️</span>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-label">Core Operations</div>
+
+      <a class="nav-link" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="nav-link" data-view="volunteers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span>Volunteers</span>
+        <span class="nav-count">10 Active</span>
+      </a>
+
+      <a class="nav-link" data-view="donors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M16 8l-8 8"/><path d="M8 8l8 8"/>
+        </svg>
+        <span>Donors &amp; Partners</span>
+        <span class="nav-count">10 Donors</span>
+      </a>
+
+      <a class="nav-link" data-view="donations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>Donation Ledger</span>
+      </a>
+
+      <a class="nav-link" data-view="events">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span>Community Drives</span>
+      </a>
+
+      <div class="nav-group-label">Reports &amp; Data</div>
+
+      <a class="nav-link" data-view="reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span>Reports &amp; Export</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="org-avatar">SS</div>
+      <div class="org-info">
+        <div class="org-name">SevaSetu Foundation</div>
+        <div class="org-role">Coordinator: Raghav</div>
+      </div>
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main Area ── -->
+  <main class="main-area">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-toggle" id="mobileToggleBtn" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <div class="breadcrumb-group">
+          <div class="breadcrumb-trail" id="breadTrail"></div>
+          <h1 class="page-heading" id="pageHeading">Dashboard</h1>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="search-pill" id="searchPillBtn" title="Search platform (⌘K)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <span>Search volunteers, donors...</span>
+          <kbd>⌘K</kbd>
+        </div>
+
+        <button class="topbar-info-btn" id="topbarAboutBtn" title="Project Details & Viva Info">
+          <span>🎓</span>
+          <span>Project Info</span>
+        </button>
+
+        <button class="btn btn-primary" id="quickAddBtn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Record Donation
+        </button>
+      </div>
+    </header>
+
+    <!-- View Viewport -->
+    <div class="view-area" id="viewport"></div>
+
+  </main>
+</div>
+
+<!-- ── Command Palette ── -->
+<div class="palette-overlay" id="cmdPaletteOverlay">
+  <div class="palette-box">
+    <div class="palette-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="palette-input" id="cmdInput" placeholder="Search volunteer, donor, or location..." autocomplete="off">
+      <span class="palette-hint">ESC to close</span>
+    </div>
+    <div class="palette-results" id="cmdResults"></div>
+  </div>
+</div>
+
+<!-- ── Drawer Overlay ── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- ── Volunteer Profile Drawer ── -->
+<aside class="drawer-panel" id="volDrawer">
+  <div class="drawer-hd">
+    <h3>Volunteer Profile &amp; Service Record</h3>
+    <button class="modal-close drawer-close" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="volDrawerBody"></div>
+  <div class="drawer-ft">
+    <button class="btn btn-danger btn-sm" id="delVolBtn">Delete Profile</button>
+    <button class="btn btn-secondary btn-sm drawer-close">Close</button>
+  </div>
+</aside>
+
+<!-- ── Donor Profile Drawer ── -->
+<aside class="drawer-panel" id="donorDrawer">
+  <div class="drawer-hd">
+    <h3>Donor Profile &amp; Contribution Record</h3>
+    <button class="modal-close drawer-close" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="donorDrawerBody"></div>
+  <div class="drawer-ft">
+    <button class="btn btn-danger btn-sm" id="delDonorBtn">Delete Profile</button>
+    <button class="btn btn-secondary btn-sm drawer-close">Close</button>
+  </div>
+</aside>
+
+<!-- ── Modal: Add Volunteer ── -->
+<div class="modal-overlay" id="modalVolunteer">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>Register New Volunteer</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <form id="formVolunteer">
+      <div class="modal-body">
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Full Name <span class="req">*</span></label><input type="text" name="name" class="f-input" required placeholder="e.g. Dr. Ananya Krishnamurthy"></div>
+          <div class="field"><label class="field-label">Email Address <span class="req">*</span></label><input type="email" name="email" class="f-input" required placeholder="name@domain.org"></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Mobile Number <span class="req">*</span></label><input type="text" name="phone" class="f-input" required placeholder="+91 98XXX XXXXX"></div>
+          <div class="field"><label class="field-label">City / District</label><input type="text" name="city" class="f-input" placeholder="e.g. Chennai, Pune"></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Availability</label>
+            <select name="availability" class="f-select"><option value="Flexible">Flexible / On-Call</option><option value="Weekends">Weekends Only</option><option value="Weekdays">Weekdays Only</option></select>
+          </div>
+          <div class="field"><label class="field-label">Status</label>
+            <select name="status" class="f-select"><option value="Active">Active</option><option value="On-Leave">On Leave</option><option value="Inactive">Inactive</option></select>
+          </div>
+        </div>
+        <div class="field"><label class="field-label">Skills &amp; Expertise (comma separated)</label><input type="text" name="skills" class="f-input" placeholder="e.g. Medical, Logistics, Teaching, Community Health"></div>
+        <div class="field"><label class="field-label">Emergency Contact (Relation &amp; Phone)</label><input type="text" name="emergencyContact" class="f-input" placeholder="e.g. Ravi K. (Spouse) — +91 94441 55210"></div>
+        <div class="field"><label class="field-label">Volunteer Notes / Experience</label><textarea name="notes" class="f-textarea" rows="2" placeholder="Experience background, language proficiencies, certifications..."></textarea></div>
+      </div>
+      <div class="modal-ft">
+        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Volunteer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── Modal: Add Donor ── -->
+<div class="modal-overlay" id="modalDonor">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>Register New Donor / Sponsor</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <form id="formDonor">
+      <div class="modal-body">
+        <div class="field"><label class="field-label">Organization or Donor Name <span class="req">*</span></label><input type="text" name="name" class="f-input" required placeholder="e.g. Tata Trusts or Arvind Patel"></div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Entity Type</label>
+            <select name="type" class="f-select"><option value="Individual">Individual Donor</option><option value="Corporate">Corporate / CSR Sponsor</option><option value="Foundation">Foundation / Trust</option></select>
+          </div>
+          <div class="field"><label class="field-label">Giving Tier</label>
+            <select name="tier" class="f-select"><option value="Bronze">Bronze (Grassroots)</option><option value="Silver">Silver (₹1L+)</option><option value="Gold">Gold (₹5L+)</option><option value="Platinum">Platinum (₹15L+)</option></select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Email Address <span class="req">*</span></label><input type="email" name="email" class="f-input" required placeholder="contact@organization.org"></div>
+          <div class="field"><label class="field-label">Phone / Landline <span class="req">*</span></label><input type="text" name="phone" class="f-input" required placeholder="+91 XX XXXX XXXX"></div>
+        </div>
+        <div class="field"><label class="field-label">Primary Contact Person</label><input type="text" name="contactPerson" class="f-input" placeholder="e.g. Subramaniam Iyer (Trustee)"></div>
+        <div class="field"><label class="field-label">Donor Notes &amp; Program Focus</label><textarea name="notes" class="f-textarea" rows="2" placeholder="Focus areas, renewal cycles, special preferences..."></textarea></div>
+      </div>
+      <div class="modal-ft">
+        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Donor</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── Modal: Record Donation ── -->
+<div class="modal-overlay" id="modalDonation">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>Record Donation (80G Tax Compliant)</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <form id="formDonation">
+      <div class="modal-body">
+        <div class="field"><label class="field-label">Donor Organization / Individual <span class="req">*</span></label><select name="donorId" id="donDonorSel" class="f-select" required></select></div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Amount (₹) <span class="req">*</span></label><input type="number" name="amount" class="f-input" required min="1" placeholder="e.g. 50000"></div>
+          <div class="field"><label class="field-label">Transaction Date <span class="req">*</span></label><input type="date" name="date" id="donDate" class="f-input" required></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Designated Program / Campaign</label>
+            <select name="campaign" class="f-select">
+              <option>Gramin Swasthya Abhiyan</option>
+              <option>Beti Padhao Scholarship</option>
+              <option>Shiksha Kiran (Education)</option>
+              <option>Annadaan Yojana</option>
+              <option>Nadi Safai Abhiyan</option>
+              <option>Jal Jeevan Mission Support</option>
+              <option>Aapda Rahat Kosh</option>
+              <option>Mahila Utthan Programme</option>
+              <option>General Fund</option>
+            </select>
+          </div>
+          <div class="field"><label class="field-label">Payment Method</label>
+            <select name="paymentMethod" class="f-select">
+              <option value="NEFT">NEFT / NetBanking</option>
+              <option value="RTGS">RTGS</option>
+              <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
+              <option value="Cheque">Cheque / Demand Draft</option>
+              <option value="Cash">Cash (With Cash Voucher)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label class="field-label">Transaction / UTR Reference / Cheque No.</label><input type="text" name="notes" class="f-input" placeholder="Bank UTR number, cheque number, or donor remarks..."></div>
+      </div>
+      <div class="modal-ft">
+        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save &amp; Generate Receipt</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── Modal: Log Volunteer Hours ── -->
+<div class="modal-overlay" id="modalHours">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>Log Volunteer Service Hours</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <form id="formHours">
+      <div class="modal-body">
+        <div class="field"><label class="field-label">Volunteer <span class="req">*</span></label><select name="volunteerId" id="hrVolSel" class="f-select" required></select></div>
+        <div class="field"><label class="field-label">Community Drive <span class="req">*</span></label><select name="eventId" id="hrEvtSel" class="f-select" required></select></div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Hours Logged <span class="req">*</span></label><input type="number" name="hoursLogged" class="f-input" required min="0.5" step="0.5" placeholder="e.g. 6.5"></div>
+          <div class="field"><label class="field-label">Date <span class="req">*</span></label><input type="date" name="date" id="hrDate" class="f-input" required></div>
+        </div>
+        <div class="field"><label class="field-label">Assigned Role</label>
+          <select name="role" class="f-select">
+            <option>Lead Medical Officer</option>
+            <option>Field Volunteer</option>
+            <option>Logistics Head</option>
+            <option>Camp Coordinator</option>
+            <option>Nutrition Screener</option>
+            <option>Field Translator</option>
+            <option>Documentation &amp; Media</option>
+            <option>Shelter Construction Lead</option>
+            <option>Packing Supervisor</option>
+            <option>Quality Inspector</option>
+          </select>
+        </div>
+        <div class="field"><label class="field-label">Activity Notes / Feedback</label><textarea name="notes" class="f-textarea" rows="2" placeholder="Tasks carried out, impact observed, remarks..."></textarea></div>
+      </div>
+      <div class="modal-ft">
+        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Hours Log</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── Modal: New Event/Drive ── -->
+<div class="modal-overlay" id="modalEvent">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>Schedule Community Drive</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <form id="formEvent">
+      <div class="modal-body">
+        <div class="field"><label class="field-label">Drive Title <span class="req">*</span></label><input type="text" name="title" class="f-input" required placeholder="e.g. Rural Healthcare Screening Camp — Kolhapur"></div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Date <span class="req">*</span></label><input type="date" name="date" class="f-input" required></div>
+          <div class="field"><label class="field-label">Category</label>
+            <select name="category" class="f-select"><option value="Aapda Rahat">Disaster Relief (Aapda Rahat)</option><option value="Swasthya">Healthcare (Swasthya)</option><option value="Annadaan">Nutrition &amp; Food (Annadaan)</option><option value="Paryavaran">Environment (Paryavaran)</option><option value="Shiksha">Education (Shiksha)</option><option value="Samaj Kalyan">Community Welfare</option></select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="field-label">Location / Venue <span class="req">*</span></label><input type="text" name="location" class="f-input" required placeholder="e.g. Govt. Secondary School, Villupuram"></div>
+          <div class="field"><label class="field-label">Volunteers Needed</label><input type="number" name="targetVolunteers" class="f-input" value="20" min="1"></div>
+        </div>
+        <div class="field"><label class="field-label">Current Status</label>
+          <select name="status" class="f-select"><option value="Upcoming">Upcoming</option><option value="In Progress">In Progress</option><option value="Completed">Completed</option></select>
+        </div>
+        <div class="field"><label class="field-label">Drive Description &amp; Goals</label><textarea name="description" class="f-textarea" rows="3" placeholder="Target beneficiaries, key activities, materials needed..."></textarea></div>
+      </div>
+      <div class="modal-ft">
+        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Create Drive</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── Modal: Authentic 80G Donation Receipt ── -->
+<div class="modal-overlay" id="modalReceipt">
+  <div class="modal-box" style="max-width:520px;">
+    <div class="modal-hd">
+      <h3>Official Donation Receipt</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="receiptBody"></div>
+    <div class="modal-ft">
+      <button class="btn btn-primary" onclick="window.print()">Print / Save PDF</button>
+      <button class="btn btn-secondary modal-cancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal: About Project (Sem 3 Submission) ── -->
+<div class="modal-overlay" id="modalAboutProject">
+  <div class="modal-box" style="max-width:560px;">
+    <div class="modal-hd">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.3rem;">🎓</span>
+        <div>
+          <h3>Project Details &amp; Architecture</h3>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Semester 3 Mini-Project Submission</p>
+        </div>
+      </div>
+      <button class="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:14px;font-size:0.84rem;line-height:1.55;">
+      <div class="project-info-card">
+        <div class="pic-row"><span>Project Title:</span><strong>SevaSetu — NGO Volunteer &amp; Donor Portal</strong></div>
+        <div class="pic-row"><span>Developer:</span><strong>Raghav (Semester 3)</strong></div>
+        <div class="pic-row"><span>Subject:</span><strong>DBMS / Web Technology Lab Mini-Project</strong></div>
+        <div class="pic-row"><span>Architecture:</span><strong>Client-Side Single Page Application (Vanilla JS)</strong></div>
+        <div class="pic-row"><span>Storage:</span><strong>Browser LocalStorage with Relational Foreign Keys</strong></div>
+      </div>
+
+      <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r-md);padding:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;margin-bottom:6px;color:var(--text-primary);">Key Features Implemented:</h4>
+        <ul style="padding-left:18px;display:flex;flex-direction:column;gap:5px;color:var(--text-secondary);font-size:0.8rem;">
+          <li><strong>Volunteer Directory:</strong> Search by city/skills, status tags, emergency contacts, detailed profile drawers.</li>
+          <li><strong>Donor Roster:</strong> Tier tracking (Platinum, Gold, Silver, Bronze), giving history, contact persons.</li>
+          <li><strong>Donation Ledger:</strong> 80G tax-exempt receipt generator with printable slips.</li>
+          <li><strong>Community Drives:</strong> Capacity tracking (volunteers needed vs deployed), service hours logging.</li>
+          <li><strong>Custom Canvas Charts:</strong> Monthly donation trends and category-wise service hours rendered on HTML5 canvas.</li>
+          <li><strong>Data Portability:</strong> Export all tables to CSV and download complete JSON database backups.</li>
+        </ul>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-200);border-radius:var(--r-sm);padding:12px 14px;">
+        <div>
+          <div style="color:var(--brand-900);font-weight:600;font-size:0.8rem;">Viva Demo Helper</div>
+          <div style="color:var(--brand-700);font-size:0.75rem;">Reset database to initial sample data anytime during testing.</div>
+        </div>
+        <button class="btn btn-sm btn-secondary" id="quickResetBtn" style="border-color:var(--brand-300);">Reset Sample Data</button>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button type="button" class="btn btn-primary modal-cancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Stack -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="js/store.js"></script>
+<script src="js/csv-exporter.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

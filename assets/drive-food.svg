@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="foodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="50%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="180" fill="url(#foodGrad)"/>
+  <circle cx="340" cy="50" r="70" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="50" cy="140" r="80" fill="rgba(255,255,255,0.06)"/>
+  <g transform="translate(45, 45)" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 35 Q40 65 65 35" fill="rgba(255,255,255,0.2)"/>
+    <path d="M10 35 L70 35"/>
+    <path d="M30 60 L50 60"/>
+    <path d="M28 20 Q32 10 30 5"/>
+    <path d="M40 20 Q44 10 42 5"/>
+    <path d="M52 20 Q56 10 54 5"/>
+  </g>
+  <text x="145" y="75" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#ffffff">Annadaan Yojana</text>
+  <text x="145" y="98" font-family="'Inter', sans-serif" font-size="12" fill="#fed7aa">Weekly Ration &amp; Meal Kits Packing</text>
+  <rect x="145" y="112" width="85" height="22" rx="11" fill="rgba(255,255,255,0.2)"/>
+  <text x="187" y="127" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">Annadaan</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="relGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="50%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="180" fill="url(#relGrad)"/>
+  <circle cx="340" cy="40" r="70" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="60" cy="140" r="90" fill="rgba(255,255,255,0.05)"/>
+  <path d="M-20,160 Q60,110 160,140 T360,120 T440,160 L440,200 L-20,200 Z" fill="rgba(255,255,255,0.12)"/>
+  <g transform="translate(40, 45)" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 10 L60 50 L0 50 Z" fill="rgba(255,255,255,0.18)"/>
+    <path d="M15 50 L15 35 L45 35 L45 50"/>
+    <path d="M75 25 L100 50 L50 50 Z" fill="rgba(255,255,255,0.1)"/>
+    <circle cx="85" cy="15" r="7" fill="#fde68a" stroke="none"/>
+  </g>
+  <text x="170" y="75" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#ffffff">Emergency Relief</text>
+  <text x="170" y="98" font-family="'Inter', sans-serif" font-size="12" fill="#bfdbfe">Ration Kits &amp; Temporary Shelters</text>
+  <rect x="170" y="112" width="90" height="22" rx="11" fill="rgba(255,255,255,0.2)"/>
+  <text x="215" y="127" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">Aapda Rahat</text>
+</svg>
